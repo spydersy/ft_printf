@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argument_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 13:21:51 by abelarif          #+#    #+#             */
-/*   Updated: 2020/03/11 14:32:49 by abelarif         ###   ########.fr       */
+/*   Updated: 2020/04/29 22:26:41 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,26 +66,41 @@ void	ft_min_sup_max(int nbr, int char_nbr, int index_neg)
 {
 	if (g_flag == 0 || g_flag == -1)
 	{
-		ft_putchar_while(' ', g_minfield - (ft_max_of(g_maxfield, char_nbr)));
-		if (nbr == -2147483648)
-			ft_min_int(char_nbr, index_neg);
-		else if (index_neg)
+		if (g_maxfield > char_nbr && index_neg == 1 && g_flag == -1)
 		{
+			ft_putchar_while(' ', g_minfield - 1 - ft_max_of(char_nbr, g_maxfield));
 			ft_putchar('-');
 			ft_putchar_while('0', g_maxfield - char_nbr + index_neg);
 			ft_putnbr(nbr * -1);
 		}
 		else
 		{
-			ft_putchar_while('0', g_maxfield - char_nbr + index_neg);
-			ft_putnbr(nbr);
+			ft_putchar_while(' ', g_minfield - (ft_max_of(g_maxfield, char_nbr)));
+			if (nbr == -2147483648)
+				ft_min_int(char_nbr, index_neg);
+			else if (index_neg)
+			{
+				ft_putchar('-');
+				ft_putchar_while('0', g_maxfield - char_nbr + index_neg);
+				ft_putnbr(nbr * -1);
+			}
+			else
+			{
+				ft_putchar_while('0', g_maxfield - char_nbr + index_neg);
+				ft_putnbr(nbr);
+			}
 		}
+	}
+	else if (g_indexmin == 11 && index_neg == 1 && g_flag == 1 && char_nbr > g_maxfield)
+	{
+		ft_putnbr(nbr);
+		ft_putchar_while(' ', g_minfield - char_nbr);
 	}
 	else
 	{
-		if (nbr == -2147483648)
+		if (nbr == -2147483648 )
 			ft_min_int(char_nbr, index_neg);
-		else if (index_neg)
+		else if (index_neg )
 		{
 			ft_putchar('-');
 			ft_putchar_while('0', g_maxfield - char_nbr + index_neg);
@@ -135,3 +150,4 @@ void	ft_d_argument(void)
 	else
 		ft_period(nbr, char_nbr);
 }
+// .-156           .

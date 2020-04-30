@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_parameters.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 12:27:05 by abelarif          #+#    #+#             */
-/*   Updated: 2020/03/12 21:22:23 by abelarif         ###   ########.fr       */
+/*   Updated: 2020/04/29 20:35:56 by abelarif         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,11 @@ int		ft_checkminfield(const char *format)
 		}
 		else
 		{
+			g_indexmin = 10;
 			g_minfield = va_arg(g_ap, int);
 			if (g_minfield < 0 )
 			{
+				g_indexmin++;
 				g_minfield *= -1;
 				g_flag = 1;
 			}
